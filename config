@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +31,7 @@ font pango:Hack-Regular 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -170,14 +170,16 @@ bindsym $mod+r mode "resize"
 #}
 
 # Key bindings
-bindsym $mod+d exec rofi -show run 
-bindsym $mod+Shift+x exec i3lock -i /home/mhallot/Pictures/q4LL5QX.png
+bindsym $mod+d exec rofi bash -show run 
+bindsym $mod+Shift+x exec i3lock -i /home/meyerhallot/Pictures/Wallpapers/_DSF6699b_3000px_1500.jpg
 bindsym $mod+c exec google-chrome
 
 
 # Always execute
-exec_always --no-startup-id feh --bg-scale /home/mhallot/Pictures/q4LL5QX.png
+exec_always --no-startup-id feh --bg-scale /home/meyerhallot/Pictures/Wallpapers/1482076660645.jpg
 
+exec_always polybar example
+exec_always compton
 #Gaps shit
 for_window [class="^.*"] border pixel 0
  #smart_gaps on
@@ -186,17 +188,35 @@ for_window [class="^.*"] border pixel 0
  gaps inner 10
  gaps outer 5
 
+# keyboard backlight controls
+ bindsym XF86KbdBrightnessUp exec /home/meyerhallot/.config/i3/backlightOn.sh
+ bindsym XF86KbdBrightnessDown exec /home/meyerhallot/.config/i3/backlightOff.sh
+
+
 # Pulse Audio controls
- bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
- bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
- bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+# Sreen brightness controls
+ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+ bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+ bindsym XF86AudioPlay exec playerctl play
+ bindsym XF86AudioPause exec playerctl pause
+ bindsym XF86AudioNext exec playerctl next
+ bindsym XF86AudioPrev exec playerctl previous
 
  #colorclass                border  background
 
 
-set $bg-color            #2f343f
+set $bg-color            #1d1f21
 set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
+set $text-color          #7b8695
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
@@ -207,21 +227,6 @@ client.urgent            #383a3b    #ffffff    #ee0000
 
 hide_edge_borders both
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
 bar {
-        status_command i3blocks #-c home/mhallot/i3blocks/i3blocks.conf
-        
-        colors {
-                background $bg-color
-                separator #757575
-		 #                  border             background         text
-                  
-		focused_workspace  $bg-color          $bg-color          $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-
+    i3bar_command ~.config/i3/lemonbar/i3_lemonbar.sh
 }
-
-
