@@ -1,0 +1,209 @@
+;:set syn=dosini
+
+[global/wm]
+#margin-top = 8
+#margin-bottom = 8
+#margin-left = 8
+#margin-right = 8
+
+[colors]
+;orange = #FF6200
+;orange = #d65d0e
+darkgray = ${xrdb:color8}
+orange = ${xrdb:color9}
+white = #ebdbb2
+gray = #585858
+black = #090909
+red = #c795ae
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+#background = #1f222d
+background = #262626
+background-alt = #4e4e4e
+#foreground = #dfdfdf
+foreground = ${xrdb:foreground}
+foreground-alt = #4e4e4e
+primary = #1f222d
+secondary = #FF6200
+alert = #fb4934
+
+[bar/bar]
+monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 6.0
+fixed-center = false
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 0
+module-margin-left = 0
+
+modules-right = keyboard separator network separator volume separator date
+modules-center = mpd 
+modules-left = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 0
+underline-color = ${colors.white}
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+;tray-maxsize = 16
+tray-padding = 0
+tray-transparent = false
+tray-scale = 1.0
+
+font-0 = "monospace:size=8;2"
+font-1 = "FontAwesome:size=8;2"
+
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online =<icon-prev><label-song><icon-next>
+format-online-underline = ${colors.white}
+format-online-padding = 1
+
+#label-song-font = 4
+label-song = %{A1:mpc toggle:}%artist% - %title%%{A}
+icon-play = 
+icon-pause = 
+icon-prev = 
+icon-next = 
+
+icon-prev-foreground = ${colors.darkgray} 
+icon-next-foreground = ${colors.darkgray}
+
+icon-play-padding = 1
+icon-pause-padding = 1
+icon-prev-padding = 1
+icon-next-padding = 1
+label-song-padding = 1
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+[module/date]
+type = internal/date
+#date-alt =   %A %H:%M 
+date = %{F#928374}%{F-} %I:%M %p
+interval = 5
+
+format-underline = ${colors.white}
+;format-background = ${colors.black}
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+label-separator = |
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> 
+format-volume-padding = 2
+
+format-volume-underline = ${colors.white}
+
+label-volume = %{F#928374} %{F-}%percentage:3%%
+#label-volume-foreground = ${color.white}
+
+label-muted =%{F#928374} %{F-}mute
+format-muted = <label-muted>
+format-muted-underline = ${colors.white}
+format-muted-padding = 2
+#label-muted-foreground = ${colors.gray}
+
+format-padding = 2
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = %{A1:~/.bin/toggkbl:}%{F#928374} %{F-}<label-layout> <label-indicator>%{A}
+format-spacing = 0
+format-underline = ${colors.white}
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = %layout%
+format-padding = 2
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding = 0
+
+[module/separator]
+type = custom/text
+content = |
+content-foreground = #4e4e4e
+
+; vim:ft=dosini
