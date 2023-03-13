@@ -162,10 +162,12 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+Shift+x exec i3lock -i /home/laineh/Pictures/Wallpapers/_DSF6699b_3000px_1500.jpg
 bindsym $mod+Shift+f exec firefox
 bindsym --release $mod+Shift+k exec xkill
+bindsym --release $mod+Shift+s exec gnome-screenshot -a -c
+bindsym --release $mod+Ctrl+s exec gnome-screenshot -i
 
 
 # Always execute
-exec_always --no-startup-id feh --bg-scale /home/laineh/Pictures/Wallpapers/Latice.png
+exec_always --no-startup-id feh --bg-tile /home/laineh/Pictures/Wallpapers/Latice.png
 exec_always ~/.screenlayout/3_monitor.sh
 exec_always ~/gitStuff/dotfiles/polybarConfig/mulimonitor_start.sh
 #exec_always killall polybar; sleep 1; polybar example

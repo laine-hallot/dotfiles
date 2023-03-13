@@ -1,0 +1,121 @@
+diff a/config b/config	(rejected hunks)
+@@ -9,7 +9,7 @@
+ #
+ # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+ 
+-set $mod Mod4
++set $mod Mod1
+ 
+ # Font for window titles. Will also be used by the bar unless a different font
+ # is used in the bar {} block below.
+@@ -31,7 +31,7 @@ font pango:Hack-Regular 8
+ floating_modifier $mod
+ 
+ # start a terminal
+-bindsym $mod+Return exec i3-sensible-terminal
++bindsym $mod+Return exec urxvt
+ 
+ # kill focused window
+ bindsym $mod+Shift+q kill
+@@ -44,12 +44,24 @@ bindsym $mod+Shift+q kill
+ # installed.
+ # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+ 
++# change focus
++bindsym $mod+j focus left
++bindsym $mod+k focus down
++bindsym $mod+l focus up
++bindsym $mod+semicolon focus right
++
+ # alternatively, you can use the cursor keys:
+ bindsym $mod+Left focus left
+ bindsym $mod+Down focus down
+ bindsym $mod+Up focus up
+ bindsym $mod+Right focus right
+ 
++# move focused window
++bindsym $mod+Shift+j move left
++bindsym $mod+Shift+k move down
++bindsym $mod+Shift+l move up
++bindsym $mod+Shift+semicolon move right
++
+ # alternatively, you can use the cursor keys:
+ bindsym $mod+Shift+Left move left
+ bindsym $mod+Shift+Down move down
+@@ -74,7 +86,7 @@ bindsym $mod+e layout toggle split
+ bindsym $mod+Shift+space floating toggle
+ 
+ # change focus between tiling / floating windows
+-bindsym $mod+d focus mode_toggle
++bindsym $mod+space focus mode_toggle
+ 
+ # focus the parent container
+ bindsym $mod+a focus parent
+@@ -82,7 +94,7 @@ bindsym $mod+a focus parent
+ # focus the child container
+ #bindsym $mod+d focus child
+ 
+-set $workspace1 "1: Firefox "
++set $workspace1 "1: Chromium "
+ set $workspace2 "2: Terminals "
+ set $workspace3 "3: Programming "
+ set $workspace4 "4: Misc "
+@@ -158,19 +170,16 @@ bindsym $mod+r mode "resize"
+ #}
+ 
+ # Key bindings
+-bindsym $mod+space exec rofi -show run
+-bindsym $mod+Shift+x exec i3lock -i /home/laineh/Pictures/Wallpapers/_DSF6699b_3000px_1500.jpg
+-bindsym $mod+Shift+f exec firefox
+-bindsym --release $mod+Shift+k exec xkill
++bindsym $mod+d exec rofi bash -show run 
++bindsym $mod+Shift+x exec i3lock -i /home/meyerhallot/Pictures/Wallpapers/_DSF6699b_3000px_1500.jpg
++bindsym $mod+c exec google-chrome
+ 
+ 
+ # Always execute
+-exec_always --no-startup-id feh --bg-scale /home/laineh/Pictures/Wallpapers/Latice.png
+-exec_always ~/.screenlayout/3_monitor.sh
+-exec_always ~/gitStuff/dotfiles/polybarConfig/mulimonitor_start.sh
+-#exec_always killall polybar; sleep 1; polybar example
+-exec_always compton
++exec_always --no-startup-id feh --bg-scale /home/meyerhallot/Pictures/Wallpapers/1482076660645.jpg
+ 
++exec_always polybar example
++exec_always compton
+ #Gaps shit
+ for_window [class="^.*"] border pixel 0
+  #smart_gaps on
+@@ -180,8 +189,8 @@ for_window [class="^.*"] border pixel 0
+  gaps outer 5
+ 
+ # keyboard backlight controls
+- bindsym XF86KbdBrightnessUp exec /home/laineh/.config/i3/backlightOn.sh
+- bindsym XF86KbdBrightnessDown exec /home/laineh/.config/i3/backlightOff.sh
++ bindsym XF86KbdBrightnessUp exec /home/meyerhallot/.config/i3/backlightOn.sh
++ bindsym XF86KbdBrightnessDown exec /home/meyerhallot/.config/i3/backlightOff.sh
+ 
+ 
+ # Pulse Audio controls
+@@ -218,21 +227,6 @@ client.urgent            #383a3b    #ffffff    #ee0000
+ 
+ hide_edge_borders both
+ 
+-# Plasma Settings
+-for_window [title="Desktop — Plasma"] kill, floating enable, border none
+-for_window [class="plasmashell"] floating enable
+-for_window [class="Plasma"] floating enable, border none
+-for_window [title="plasma-desktop"] floating enable, border none
+-for_window [title="win7"] floating enable, border none
+-for_window [class="krunner"] floating enable, border none
+-for_window [class="Kmix"] floating enable, border none
+-for_window [class="Klipper"] floating enable, border none
+-for_window [class="Plasmoidviewer"] floating enable, border none
+-for_window [class="(?i)*nextcloud*"] floating disable
+-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+-no_focus [class="plasmashell" window_type="notification"] 
+-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+-
+ bar {
+     i3bar_command ~.config/i3/lemonbar/i3_lemonbar.sh
+ }
