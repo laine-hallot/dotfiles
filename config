@@ -159,7 +159,7 @@ bindsym $mod+r mode "resize"
 
 # Key bindings
 bindsym $mod+space exec rofi -show run
-bindsym $mod+Shift+x exec i3lock -i /home/laineh/Pictures/Wallpapers/_DSF6699b_3000px_1500.jpg
+bindsym $mod+Shift+x exec i3lock -i /home/laineh/Pictures/Wallpapers/tomo.png
 bindsym $mod+Shift+f exec firefox
 bindsym --release $mod+Shift+k exec xkill
 bindsym --release $mod+Shift+s exec gnome-screenshot -a -c
@@ -167,8 +167,8 @@ bindsym --release $mod+Ctrl+s exec gnome-screenshot -i
 
 
 # Always execute
-exec_always --no-startup-id feh --bg-tile /home/laineh/Pictures/Wallpapers/Latice.png
-exec_always ~/.screenlayout/3_monitor.sh
+exec_always --no-startup-id feh --bg-fill /home/laineh/Pictures/Wallpapers/tomo.jpg
+exec_always ~/.screenlayout/thinkpad.sh
 exec_always ~/gitStuff/dotfiles/polybarConfig/mulimonitor_start.sh
 #exec_always killall polybar; sleep 1; polybar example
 exec_always compton
@@ -187,9 +187,9 @@ for_window [class="^.*"] border pixel 0
 
 
 # Pulse Audio controls
- bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
- bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
- bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+ bindsym XF86AudioRaiseVolume exec --no-startup-id /home/laineh/gitStuff/volume-notification-dunst/volume.sh up #increase sound volume
+ bindsym XF86AudioLowerVolume exec --no-startup-id /home/laineh/gitStuff/volume-notification-dunst/volume.sh down #decrease sound volume
+ bindsym XF86AudioMute exec --no-startup-id /home/laineh/gitStuff/volume-notification-dunst/volume.sh mute # mute sound
 
 # Sreen brightness controls
  bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
