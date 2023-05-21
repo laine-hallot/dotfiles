@@ -60,7 +60,7 @@ font-4 = Material Icons:fontformat=opentype:size=12:antialias=false;0
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = pulseaudio xkeyboard battery wlan date system-bluetooth-bluetoothctl powermenu
+modules-right = pulseaudio xkeyboard battery wlan date powermenu
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard cpu wlan eth date powermenu
 
 tray-position = right

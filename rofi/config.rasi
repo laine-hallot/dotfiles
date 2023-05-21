@@ -11,9 +11,9 @@ configuration {
  **/
 * {
   lightbg: #3C3839;
-  background-color: #060a21;
+  background-color: #2A2C2D;
   spacing: 2;
-  background: #060a21;
+  background: #2A2C2D;
   foreground: #FDFDFB;
   text-inactive: #948E90;
 }
