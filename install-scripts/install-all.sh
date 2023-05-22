@@ -73,7 +73,7 @@ mkdir -p dist/ deps/;
 ./install-scripts/install-setup-utils.sh;
 source ./deps/shell-menu-select/get-choice.sh;
 
-platformChoices=('Desktop', 'Laptop');
+platformChoices=('Desktop' 'Laptop');
 
 getChoice -q "What type of machine are you setting up?" -o platformChoices -i 0 -v selectedPlatform;
 
