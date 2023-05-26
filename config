@@ -167,8 +167,8 @@ bindsym --release $mod+Ctrl+s exec gnome-screenshot -i
 
 
 # Always execute
-exec_always --no-startup-id feh --bg-fill /home/laineh/Pictures/Wallpapers/tomo.png
-exec_always ~/.screenlayout/thinkpad.sh
+exec_always --no-startup-id feh --bg-tile /home/laineh/Pictures/Wallpapers/Latice.png
+exec_always ~/.screenlayout/3_monitor.sh
 exec_always ~/gitStuff/dotfiles/polybarConfig/mulimonitor_start.sh
 #exec_always killall polybar; sleep 1; polybar example
 exec_always compton
