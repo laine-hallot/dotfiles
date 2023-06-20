@@ -1,0 +1,9 @@
+[Unit]
+Description=Geolocate the machine when the network changes and set the timezone.
+
+[Service]
+ExecStart=/bin/bash /usr/sbin/desu-timezone.sh
+
+
+[Install]
+WantedBy=multi-user.target

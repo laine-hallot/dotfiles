@@ -1,4 +1,4 @@
-source ./util-scripts/location-checker.sh;
+source ../util-scripts/location-checker.sh;
 
 
 function updateTimeZone() {

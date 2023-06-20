@@ -1,0 +1,9 @@
+[Unit]
+Description=15min Timer
+
+[Timer]
+OnBootSec=0min
+OnUnitActiveSec=15min
+
+[Install]
+WantedBy=timers.target
