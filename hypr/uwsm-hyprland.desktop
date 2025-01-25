@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Hyprland (uwsm-managed)
+Comment=An intelligent dynamic tiling Wayland compositor (managed by UWSM)
+Exec=uwsm start hyprland.desktop
+Type=Application
+DesktopNames=Hyprland
+Keywords=tiling;wayland;compositor;
