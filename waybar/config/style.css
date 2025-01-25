@@ -1,0 +1,118 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "SF Pro Rounded", "Font Awesome 6 Free", "Font Awesome 6 Brands",
+    "Font Awesome 6 Free, Heavy", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 0;
+}
+
+#network {
+  /* font-family: "Phosphor-Bold, Regular"; */
+  font-size: 20px;
+}
+
+window#waybar {
+  background: rgba(32, 48, 59, 0.1);
+  /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  color: white;
+}
+
+button:hover {
+  color: red;
+}
+
+.modules-center {
+  padding: 0 20px;
+  /*  border-radius: 4px;
+  border: 2px solid #fff; */
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.9);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+  border-radius: 4px;
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+  padding: 0 16px;
+  background: transparent;
+  color: white;
+  /* border-bottom: 3px solid white; */
+  /* border-bottom: 3px solid transparent; */
+  transition: background 400ms, color 400ms;
+}
+
+#workspaces button.active {
+  background: #64727d;
+  /* border-bottom: 3px solid white; */
+  background: white;
+  color: black;
+}
+
+#idle_inhibitor {
+  font-weight: 900;
+  transition: color 400ms;
+}
+
+#idle_inhibitor.deactivated {
+  color: rgba(140, 140, 140, 0.5);
+}
+#mode,
+#clock {
+  padding: 8px 10px;
+}
+
+#mode {
+  background: #64727d;
+  /* border-bottom: 3px solid white; */
+}
+
+#clock {
+  background-color: #64727d;
+  transition: all 400ms ease;
+}
+
+#battery {
+  /* background-color: #ffffff;
+    color: black; */
+  color: white;
+  box-shadow: 42px 42px 22px 12px red;
+}
+
+#battery.charging {
+  color: white;
+  /* background-color: #26A65B; */
+}
+
+#tray {
+  padding-right: 8px;
+}
+
+#battery.low:not(.charging) {
+  color: #d5a53c;
+}
+
+#battery.warning:not(.charging) {
+  color: #f53c3c;
+}
+
+@keyframes blink {
+  to {
+    color: black;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  background: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Waybar
+Documentation=man:waybar(5)
+# order startup after WM
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "wlroots:sway:Wayfire:labwc:Hyprland" ""
+ExecStart=/usr/bin/waybar
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=always
+Slice=app-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
