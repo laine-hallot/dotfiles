@@ -1,14 +1,16 @@
 #!/bin/bash
 
 # ('module_name', './module/root/path', 'has_deps_downloaded', 'has_been_installed', 'was_selected_for_installation')
-bitmapFonts=('bitmap-fonts' './install-scripts/bitmap-fonts' false false true);
-fontsStep=('material-design-icons' './install-scripts/material-design-icons' false false true);
-polybar=('polybar' './install-scripts/polybar' false false true);
-polyBarScriptsStep=('polybar-scripts' './install-scripts/polybar-scripts' false false true);
-rofi=('rofi' './install-scripts/rofi' false false true);
-i3=('i3' './install-scripts/i3' false false true);
+#bitmapFonts=('bitmap-fonts' './install-scripts/bitmap-fonts' false false true);
+#fontsStep=('material-design-icons' './install-scripts/material-design-icons' false false true);
+#polybar=('polybar' './install-scripts/polybar' false false true);
+#polyBarScriptsStep=('polybar-scripts' './install-scripts/polybar-scripts' false false true);
+#rofi=('rofi' './install-scripts/rofi' false false true);
+#i3=('i3' './install-scripts/i3' false false true);
+cursors=('cursors' './install-scripts/cursors' false false true);
 
-modules=(bitmapFonts fontsStep polybar polyBarScriptsStep rofi i3);
+#modules=(bitmapFonts fontsStep polybar polyBarScriptsStep rofi i3);
+modules=(cursors);
 
 declare -n module;
 
