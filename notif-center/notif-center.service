@@ -1,0 +1,17 @@
+[Unit]
+Description=Sway Notification Center
+Documentation=man:swaync
+# order startup after WM
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "wlroots:sway:Wayfire:labwc:Hyprland" ""
+ExecStart=/usr/bin/swaync
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=always
+Slice=app-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
+
