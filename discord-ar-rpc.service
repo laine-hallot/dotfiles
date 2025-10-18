@@ -1,0 +1,18 @@
+[Unit]
+Description=arRPC (open RPC server for Discord)
+# Documentation=man:swaync
+# order startup after WM
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "wlroots:sway:Wayfire:labwc:Hyprland" ""
+ExecStart=/home/laineh/.nvm/versions/node/v24.6.0/bin/npx arrpc
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=always
+Slice=app-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
+
+

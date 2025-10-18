@@ -1,0 +1,46 @@
+{
+    "buttons": [
+        {
+            "label": "lock",
+            "action": "pidof hyprlock || hyprlock && loginctl lock-session",
+            "text": "Lock",
+            "keybind": "l",
+            "icon": "icons/lock.svg"
+        },
+        {
+            "label": "hibernate",
+            "action": "systemctl hibernate",
+            "text": "Hibernate",
+            "keybind": "h",
+            "icon": "icons/hibernate.svg"
+        },
+        {
+            "label": "logout",
+            "action": "loginctl terminate-user $USR",
+            "text": "Logout",
+            "keybind": "e",
+            "icon": "icons/logout.svg"
+        },
+        {
+            "label": "shutdown",
+            "action": "systemctl poweroff",
+            "text": "Shutdown",
+            "keybind": "s",
+            "icon": "icons/shutdown.svg"
+        },
+        {
+            "label": "suspend",
+            "action": "systemctl suspend",
+            "text": "Suspend",
+            "keybind": "u",
+            "icon": "icons/suspend.svg"
+        },
+        {
+            "label": "reboot",
+            "action": "systemctl reboot",
+            "text": "Reboot",
+            "keybind": "r",
+            "icon": "icons/reboot.svg"
+        }
+    ]
+}

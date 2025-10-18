@@ -1,2 +1,40 @@
-@import 'themes/nova-dark/notifications.css';
-@import 'themes/nova-dark/central_control.css';
+* {
+  font-family: "Fira Code", "Font Awesome 6 Free";
+  transition: 200ms;
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {
+  background: transparent;
+}
+
+.control-center {
+  background: rgba(67, 63, 76, 0.93);
+  border: 1px solid rgba(185, 148, 255, 0.933);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  margin: 18px;
+  padding: 12px;
+}
+
+.widget-menubar,
+.widget-volume,
+.widget-buttons-grid {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.widget-title label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7333333333333333em;
+}
+.widget-menubar .power > * {
+  margin-top: 4px;
+}
+
+.widget-menubar .power button {
+  background: rgba(62, 54, 69, 0.95);
+  padding-left: 4px;
+}
+
+.widget-menubar .power button:hover {
+  background: rgba(184, 146, 255, 0.933);
+}

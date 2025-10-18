@@ -1,13 +1,142 @@
 {
-  "buttons-grid": { // also works with actions in menubar widget
-    "actions": [
-      {
-        "label": "WiFi",
-        "type": "toggle",
-        "active": true,
-        "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
-        "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "top",
+  "control-center-layer": "overlay",
+  "layer-shell": true,
+  "layer-shell-cover-screen": true,
+  "cssPriority": "application",
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
+  "control-center-margin-left": 0,
+  "notification-2fa-action": true,
+  "notification-inline-replies": true,
+  "notification-icon-size": 64,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 10,
+  "timeout-low": 5,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "relative-timestamps": true,
+  "control-center-width": 500,
+  "control-center-height": 1200,
+  "notification-window-width": 500,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "text-empty": "No Notifications",
+  "script-fail-notify": true,
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    },
+    "example-action-script": {
+      "exec": "echo 'Do something actionable!'",
+      "urgency": "Normal",
+      "run-on": "action"
+    }
+  },
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": [
+    "inhibitors",
+    "volume",
+    "menubar",
+    "buttons-grid",
+    "dnd",
+    "mpris",
+    "title",
+    "notifications"
+  ],
+  "widget-config": {
+    "inhibitors": {
+      "text": "Inhibitors",
+      "button-text": "Clear All",
+      "clear-all-button": true
+    },
+    "volume": {
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true,
+      "collapse-button-label": "",
+      "expand-button-label": "",
+      "animation-type": "slide_up"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "menu#indef": {
+        "text": "Do Not Disturb"
       }
-    ]
+    },
+    "label": {
+      "max-lines": 5,
+      "text": "Label Text"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12,
+      "autohide": true,
+      "blacklist": []
+    },
+    "menubar": {
+      "menu#power": {
+        "label": "",
+        "position": "right",
+        "actions": [
+          {
+            "label": "Shut down",
+            "command": "systemctl poweroff"
+          },
+          {
+            "label": "Restart",
+            "command": "systemctl restart"
+          },
+          {
+            "label": "Logout",
+            "command": "hyprctl dispatch exit"
+          }
+        ]
+      },
+      "menu#netowrk": {
+        "label": "",
+        "position": "right",
+        "actions": [
+          {
+            "label": "Network",
+            "command": "sh -c 'env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi'"
+          },
+          {
+            "label": "sh -c 'echo test'",
+            "type": "toggle",
+            "active": true,
+            "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+            "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+          }
+        ]
+      },
+      "buttons#lol": {
+        "position": "right",
+        "actions": [
+          {
+            "label": "label"
+          }
+        ]
+      }
+    }
   }
 }
